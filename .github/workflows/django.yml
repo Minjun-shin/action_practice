@@ -43,4 +43,14 @@ jobs:
   #       key: ''
   #       command_timeout: 3m
   #       script: |
-  #         # SSH로 실행하고 싶은 명령어 작성
+  #         sudo apt-get update
+  #         sudo apt-get -y upgrade
+  #         cd {프로젝트 폴더 위치}
+  #         source {가상환경 이름}/bin/activate
+  #         git pull
+  #         sudo lsof -t -i tcp:8000 | xargs kill -9
+  #         pip install -r requirements.txt
+  #         python manage.py makemigrations
+  #         python manage.py migrate
+  #         nohup gunicorn --bind 0.0.0.0:8000 {django 프로젝트명}.wsgi > nohup.out 2> nohup.err < /dev/null &
+  #         exit 0
