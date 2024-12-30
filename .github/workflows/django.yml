@@ -28,3 +28,19 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+  
+  # Deploy:
+
+  #   needs: build
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - name: EC2 connection test
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ''
+  #       username: ''
+  #       key: ''
+  #       command_timeout: 3m
+  #       script: |
+  #         # SSH로 실행하고 싶은 명령어 작성
